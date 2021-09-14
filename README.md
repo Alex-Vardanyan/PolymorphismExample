@@ -1,2 +1,2 @@
 # PolymorphismExample
-Polymorphic class example
+Polymorphic class example, based on chess (pieces such as King, Rook, Bishop/Pawn)
