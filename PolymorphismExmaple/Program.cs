@@ -25,7 +25,17 @@ namespace PolymorphismExmaple
             Console.WriteLine(BlackKing);
             BlackKing.ViewPossibleMoves();
             BlackKing.Move("C7");
-            Console.WriteLine(BlackKing);
+            Console.WriteLine(BlackBishop);
+
+            try
+            {
+                WhiteRook2.ViewPossibleMoves();
+            }
+            catch (ChessException ex)
+            {
+                Console.Write("Sorry You can't do that! (here's the exceptions message: )");
+                Console.WriteLine(ex.Message);
+            }
         }
     }
 
@@ -38,6 +48,7 @@ namespace PolymorphismExmaple
         protected string pieceName;
         protected int pieceValue;
         protected List<string> availableMoves = new List<string>();
+        protected string letters = "ABCDEFGH";
 
         protected ChessPiece(string piecename, string piececolor, string position, int piecevalue = 0) 
         {
@@ -55,7 +66,7 @@ namespace PolymorphismExmaple
             get => currentPosition;
             set
             {
-                if ("ABCDEFGH".Contains(value[0]) && "12345678".Contains(value[1]) && value.Length == 2)
+                if (letters.Contains(value[0]) && "12345678".Contains(value[1]) && value.Length == 2)
                 {
                     currentPosition = value;
                 }
@@ -98,13 +109,13 @@ namespace PolymorphismExmaple
                 }
                 else
                 {
-                    throw new Exception();
+                    throw new ChessException("Wrong move");
                 }
                 availableMoves.Clear();
             }
             else
             {
-                Console.WriteLine("You can't use this piece");
+                throw new ChessException("You can't use this piece");
             }
         }
 
@@ -120,13 +131,13 @@ namespace PolymorphismExmaple
                 }
                 else
                 {
-                    throw new Exception();
+                    throw new ChessException("Wrong move or targeting piece");
                 }
                 availableMoves.Clear();
             }
             else
             {
-                Console.WriteLine("You can't use this piece");
+                throw new ChessException("You can't use this piece");
             }
         }
 
@@ -134,20 +145,26 @@ namespace PolymorphismExmaple
 
         public void ViewPossibleMoves()
         {
-            PossibleMoves();
-            Console.Write("Available moves are: ");
-            foreach (string item in availableMoves)
+            if (isAlive == true)
             {
-                Console.Write($"{item} ");
+                PossibleMoves();
+                Console.Write("Available moves are: ");
+                foreach (string item in availableMoves)
+                {
+                    Console.Write($"{item} ");
+                }
+                Console.WriteLine();
+                availableMoves.Clear();
             }
-            Console.WriteLine();
-            availableMoves.Clear();
+            else
+            {
+                throw new ChessException("You can't use this piece");
+            }
         }
 
 
         private string PositionName(int pos)
         {
-            string letters = "ABCDEFGH";
             string _positionname;
             _positionname = letters[(pos % 8)].ToString() + (pos / 8 + 1).ToString();
             return _positionname;
@@ -174,7 +191,6 @@ namespace PolymorphismExmaple
         {
             for (int i = 0; i < 8; i++)
             {
-                string letters = "ABCDEFGH";
                 availableMoves.Add(letters[i] + currentPosition[1].ToString());
                 availableMoves.Add(currentPosition[0] + (i+1).ToString());
             }
@@ -189,7 +205,6 @@ namespace PolymorphismExmaple
 
         protected override void PossibleMoves()
         {
-            string letters = "ABCDEFGH";
             if (Convert.ToInt32(currentPosition[1].ToString()) + 1 < 9)
             {
                 availableMoves.Add(currentPosition[0] + (Convert.ToInt32(currentPosition[1].ToString()) + 1).ToString());
@@ -206,13 +221,30 @@ namespace PolymorphismExmaple
             {
                 availableMoves.Add(letters[letters.IndexOf(currentPosition[0]) - 1] + currentPosition[1].ToString());
             }
+
+            if (Convert.ToInt32(currentPosition[1].ToString()) + 1 < 9 && letters.IndexOf(currentPosition[0]) + 1 < 8)
+            {
+                availableMoves.Add(letters[letters.IndexOf(currentPosition[0]) + 1] + (Convert.ToInt32(currentPosition[1].ToString()) + 1).ToString());
+            }
+            if (Convert.ToInt32(currentPosition[1].ToString()) + 1 < 9 && letters.IndexOf(currentPosition[0]) -1 >= 0)
+            {
+                availableMoves.Add(letters[letters.IndexOf(currentPosition[0]) - 1] + (Convert.ToInt32(currentPosition[1].ToString()) + 1).ToString());
+            }
+            if (Convert.ToInt32(currentPosition[1].ToString()) - 1 > 0 && letters.IndexOf(currentPosition[0]) + 1 < 8)
+            {
+                availableMoves.Add(letters[letters.IndexOf(currentPosition[0]) + 1] + (Convert.ToInt32(currentPosition[1].ToString()) - 1).ToString());
+            }
+            if (Convert.ToInt32(currentPosition[1].ToString()) - 1 > 0 && letters.IndexOf(currentPosition[0]) - 1 < 8)
+            {
+                availableMoves.Add(letters[letters.IndexOf(currentPosition[0]) - 1] + (Convert.ToInt32(currentPosition[1].ToString()) - 1).ToString());
+            }
+
         }
     }
 
     sealed class Bishop : ChessPiece
     {
         public Bishop(string name, string color, string pos, int pval = 2) : base(name, color, pos, pval) { }
-        string letters = "ABCDEFGH";
 
         protected override void PossibleMoves()
         {
