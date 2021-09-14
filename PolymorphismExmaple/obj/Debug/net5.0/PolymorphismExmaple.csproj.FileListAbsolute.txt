@@ -1,0 +1,16 @@
+C:\Users\User\source\repos\PolymorphismExmaple\bin\Debug\net5.0\PolymorphismExmaple.exe
+C:\Users\User\source\repos\PolymorphismExmaple\bin\Debug\net5.0\PolymorphismExmaple.deps.json
+C:\Users\User\source\repos\PolymorphismExmaple\bin\Debug\net5.0\PolymorphismExmaple.runtimeconfig.json
+C:\Users\User\source\repos\PolymorphismExmaple\bin\Debug\net5.0\PolymorphismExmaple.runtimeconfig.dev.json
+C:\Users\User\source\repos\PolymorphismExmaple\bin\Debug\net5.0\PolymorphismExmaple.dll
+C:\Users\User\source\repos\PolymorphismExmaple\bin\Debug\net5.0\ref\PolymorphismExmaple.dll
+C:\Users\User\source\repos\PolymorphismExmaple\bin\Debug\net5.0\PolymorphismExmaple.pdb
+C:\Users\User\source\repos\PolymorphismExmaple\obj\Debug\net5.0\PolymorphismExmaple.csproj.AssemblyReference.cache
+C:\Users\User\source\repos\PolymorphismExmaple\obj\Debug\net5.0\PolymorphismExmaple.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\User\source\repos\PolymorphismExmaple\obj\Debug\net5.0\PolymorphismExmaple.AssemblyInfoInputs.cache
+C:\Users\User\source\repos\PolymorphismExmaple\obj\Debug\net5.0\PolymorphismExmaple.AssemblyInfo.cs
+C:\Users\User\source\repos\PolymorphismExmaple\obj\Debug\net5.0\PolymorphismExmaple.csproj.CoreCompileInputs.cache
+C:\Users\User\source\repos\PolymorphismExmaple\obj\Debug\net5.0\PolymorphismExmaple.dll
+C:\Users\User\source\repos\PolymorphismExmaple\obj\Debug\net5.0\ref\PolymorphismExmaple.dll
+C:\Users\User\source\repos\PolymorphismExmaple\obj\Debug\net5.0\PolymorphismExmaple.pdb
+C:\Users\User\source\repos\PolymorphismExmaple\obj\Debug\net5.0\PolymorphismExmaple.genruntimeconfig.cache

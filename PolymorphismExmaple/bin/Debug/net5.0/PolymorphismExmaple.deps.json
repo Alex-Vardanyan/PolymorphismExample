@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "PolymorphismExmaple/1.0.0": {
+        "runtime": {
+          "PolymorphismExmaple.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "PolymorphismExmaple/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
